@@ -95,7 +95,7 @@
  *
  * And uncomment the App.baseUrl below. But keep in mind
  * that plugin assets such as images, CSS and Javascript files
- * will not work without url rewriting!
+ * will not work without URL rewriting!
  * To work around this issue you should either symlink or copy
  * the plugin assets into you app's webroot directory. This is
  * recommended even when you are using mod_rewrite. Handling static
@@ -193,13 +193,11 @@
 
 /**
  * A random string used in security hashing methods.
- */
-	Configure::write('Security.salt', 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi');
+ */	Configure::write('Security.salt', '8cb7659c750db6bd242c097223eef1b0a3c2c7f7');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
- */
-	Configure::write('Security.cipherSeed', '76859309657453542496749683645');
+ */	Configure::write('Security.cipherSeed', '656636336538346262353635666139');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -321,7 +319,7 @@ if (Configure::read('debug') > 0) {
 }
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
-$prefix = 'myapp_';
+$prefix = 'app_';
 
 /**
  * Configure the cache used for general framework caching. Path information,

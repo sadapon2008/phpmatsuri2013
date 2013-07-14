@@ -20,6 +20,7 @@
 if (!Configure::read('debug')):
 	throw new NotFoundException();
 endif;
+
 App::uses('Debugger', 'Utility');
 ?>
 <h2><?php echo __d('cake_dev', 'Release Notes for CakePHP %s.', Configure::version()); ?></h2>
@@ -113,7 +114,7 @@ if (isset($filePresent)):
 	<?php
 		if ($connected && $connected->isConnected()):
 			echo '<span class="notice success">';
-	 			echo __d('cake_dev', 'Cake is able to connect to the database.');
+				echo __d('cake_dev', 'Cake is able to connect to the database.');
 			echo '</span>';
 		else:
 			echo '<span class="notice">';
@@ -210,7 +211,7 @@ You can also add some CSS styles for your pages at: APP/webroot/css.');
 	<ul><li><?php echo __d('cake_dev', 'The Rapid Development Framework'); ?></li></ul></li>
 	<li><a href="http://book.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Documentation'); ?> </a>
 	<ul><li><?php echo __d('cake_dev', 'Your Rapid Development Cookbook'); ?></li></ul></li>
-	<li><a href="http://api.cakephp.org/"><?php echo __d('cake_dev', 'CakePHP API'); ?> </a>
+	<li><a href="http://api.cakephp.org"><?php echo __d('cake_dev', 'CakePHP API'); ?> </a>
 	<ul><li><?php echo __d('cake_dev', 'Quick Reference'); ?></li></ul></li>
 	<li><a href="http://bakery.cakephp.org"><?php echo __d('cake_dev', 'The Bakery'); ?> </a>
 	<ul><li><?php echo __d('cake_dev', 'Everything CakePHP'); ?></li></ul></li>
