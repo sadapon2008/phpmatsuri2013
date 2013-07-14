@@ -1,33 +1,26 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * This is core configuration file.
  *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
+ * Use it to configure core behaviour of Cake.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * PHP 5
+ *
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       app.Config
- * @since         CakePHP(tm) v3.0.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @since         CakePHP(tm) v 0.2.9
  */
-namespace App\Config;
-
-use Cake\Core\Configure;
 
 /**
- *
  * Database configuration class.
  * You can specify multiple configurations for production, development and testing.
  *
  * datasource => The name of a supported datasource; valid options are as follows:
  *
- *  Database/Mysql      - MySQL 4 & 5,
- *  Database/Sqlite     - SQLite (PHP5 only),
- *  Database/Postgres   - PostgreSQL 7 and higher,
- *  Database/Sqlserver  - Microsoft SQL Server 2005 and higher
+ *  Cake\Datasource\Driver\Mysql      - MySQL 4 & 5,
+ *  Cake\Datasource\Driver\Sqlite     - SQLite (PHP5 only),
+ *  Cake\Datasource\Driver\Postgres   - PostgreSQL 7 and higher,
+ *  Cake\Datasource\Driver\Sqlserver  - Microsoft SQL Server 2005 and higher
  *
  * You can add custom database datasources (or override existing datasources) by adding the
  * appropriate file to app/Model/Datasource/Database. Datasources should be named 'MyDatasource.php',
@@ -43,8 +36,7 @@ use Cake\Core\Configure;
  * on a per-table basis with the Model::$tablePrefix property.
  *
  * schema =>
- * For Postgres/Sqlserver specifies which schema you would like to use the tables in.
- * Postgres defaults to 'public'. For Sqlserver, it defaults to empty and use
+ * For Postgres/Sqlserver specifies which schema you would like to use the tables in. Postgres defaults to 'public'. For Sqlserver, it defaults to empty and use
  * the connected user's default schema (typically 'dbo').
  *
  * encoding =>
@@ -53,12 +45,6 @@ use Cake\Core\Configure;
  *
  * unix_socket =>
  * For MySQL to connect via socket specify the `unix_socket` parameter instead of `host` and `port`
- *
- * settings =>
- * Array of key/value pairs, on connection it executes SET statements for each pair
- * For MySQL : http://dev.mysql.com/doc/refman/5.6/en/set-statement.html
- * For Postgres : http://www.postgresql.org/docs/9.2/static/sql-set.html
- * For Sql Server : http://msdn.microsoft.com/en-us/library/ms190356.aspx
  */
 
 /**
@@ -66,7 +52,7 @@ use Cake\Core\Configure;
  * by all models.
  */
 Configure::write('Datasource.default', [
-	'datasource' => 'Cake\Database\Driver\Mysql',
+	'datasource' => 'Cake\Datasource\Driver\Mysql',
 	'persistent' => false,
 	'host' => 'localhost',
 	'login' => 'user',
@@ -81,7 +67,7 @@ Configure::write('Datasource.default', [
  * while running unit and integration tests.
  */
 Configure::write('Datasource.test', [
-	'datasource' => 'Cake\Database\Driver\Mysql',
+	'datasource' => 'Cake\Datasource\Driver\Mysql',
 	'persistent' => false,
 	'host' => 'localhost',
 	'login' => 'user',

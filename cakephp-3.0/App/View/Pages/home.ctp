@@ -3,18 +3,9 @@
  *
  * PHP 5
  *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       app.View.Pages
  * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
@@ -115,7 +106,7 @@ endif;
 <?php
 if (isset($filePresent)):
 	try {
-		$connection = ConnectionManager::getDataSource('default');
+		$connected = ConnectionManager::getDataSource('default');
 		$connected = $connection->connect();
 	} catch (Exception $connectionError) {
 		$connected = false;
@@ -130,9 +121,9 @@ if (isset($filePresent)):
 ?>
 <p>
 	<?php
-		if ($connected):
+		if ($connected && $connected->isConnected()):
 			echo '<span class="notice success">';
-	 			echo __d('cake_dev', 'Cake is able to connect to the database.');
+				echo __d('cake_dev', 'Cake is able to connect to the database.');
 			echo '</span>';
 		else:
 			echo '<span class="notice">';
@@ -156,7 +147,7 @@ if (isset($filePresent)):
 
 <p>
 	<?php
-		if (Plugin::loaded('DebugKit')):
+		if (CakePlugin::loaded('DebugKit')):
 			echo '<span class="notice success">';
 				echo __d('cake_dev', 'DebugKit plugin is present');
 			echo '</span>';
@@ -228,7 +219,7 @@ You can also add some CSS styles for your pages at: APP/webroot/css.');
 	<ul><li><?php echo __d('cake_dev', 'The Rapid Development Framework'); ?></li></ul></li>
 	<li><a href="http://book.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Documentation'); ?> </a>
 	<ul><li><?php echo __d('cake_dev', 'Your Rapid Development Cookbook'); ?></li></ul></li>
-	<li><a href="http://api.cakephp.org/"><?php echo __d('cake_dev', 'CakePHP API'); ?> </a>
+	<li><a href="http://api.cakephp.org"><?php echo __d('cake_dev', 'CakePHP API'); ?> </a>
 	<ul><li><?php echo __d('cake_dev', 'Quick Reference'); ?></li></ul></li>
 	<li><a href="http://bakery.cakephp.org"><?php echo __d('cake_dev', 'The Bakery'); ?> </a>
 	<ul><li><?php echo __d('cake_dev', 'Everything CakePHP'); ?></li></ul></li>

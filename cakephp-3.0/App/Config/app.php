@@ -66,7 +66,7 @@ use Cake\Core\Configure;
 	]);
 
 /**
- * Uncomment this line and correct your server timezone to fix 
+ * Uncomment this line and correct your server timezone to fix
  * any date & time related errors.
  */
 	//date_default_timezone_set('UTC');
@@ -76,12 +76,12 @@ use Cake\Core\Configure;
  * The level of CakePHP security.
  *
  * - salt - A random string used in security hashing methods.
- * - cipherSeed - A random numeric string (digits only) used to seed 
+ * - cipherSeed - A random numeric string (digits only) used to seed
  *   the xor cipher functions in Security.
  */
 	Configure::write('Security', [
-		'salt' => 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi',
-		'cipherSeed' => '76859309657453542496749683645',
+		'salt' => '23320d863708379ddefb8e22c84c0cdacbf61aa1',
+		'cipherSeed' => '303162396338343734363139373932',
 	]);
 
 /**
@@ -105,13 +105,10 @@ use Cake\Core\Configure;
 
 /**
  * Configure an autoloader for the App namespace.
- *
- * Use App\Controller\AppController as a test to see if composer
- * support is being used.
  */
-if (!class_exists('App\Controller\AppController')) {
-	(new \Cake\Core\ClassLoader($namespace, dirname(APP)))->register();
-}
+	$loader = new \Cake\Core\ClassLoader($namespace, dirname(APP));
+	$loader->register();
+	unset($loader, $namespace);
 
 /**
  * Define the FULL_BASE_URL used for link generation.
@@ -127,11 +124,10 @@ $httpHost = env('HTTP_HOST');
 if (isset($httpHost)) {
 	define('FULL_BASE_URL', 'http' . $s . '://' . $httpHost);
 }
+unset($httpHost, $s);
 
 /**
  * Configure the mbstring extension to use the correct encoding.
  */
 $encoding = Configure::read('App.encoding');
 mb_internal_encoding($encoding);
-
-unset($httpHost, $s, $namespace, $encoding);

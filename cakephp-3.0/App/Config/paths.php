@@ -102,17 +102,20 @@ define('JS_URL', 'js/');
 /**
  * The absolute path to the "cake" directory, WITHOUT a trailing DS.
  *
- * Attempt to use composer's vendor directories. If that fails,
- * assume the standard lib/Cake path.
+ * Un-comment this line to specify a fixed path to CakePHP.
+ * This should point at the directory containing `Cake`.
+ *
+ * For ease of development CakePHP uses PHP's include_path.  If you
+ * cannot modify your include_path set this value.
+ *
+ * Leaving this constant undefined will result in it being defined in Cake/bootstrap.php
  */
-if (file_exists(dirname(__DIR__) . '/vendor/autoload.php')) {
-	define('CAKE_CORE_INCLUDE_PATH', dirname(__DIR__) . '/vendor/cakephp/framework');
-} else {
-	define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'lib');
-}
+//TODO include_path support.
+define('CAKE_CORE_INCLUDE_PATH',  DS . 'var' . DS . 'phpmatsuri2013' . DS . 'cakephp-3.0' . DS . 'lib');
+
+define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 
 /**
  * Path to the cake directory.
  */
-define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 define('CAKE', CORE_PATH . 'Cake' . DS);

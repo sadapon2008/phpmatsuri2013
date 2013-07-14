@@ -16,7 +16,6 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       app.Console
  * @since         CakePHP(tm) v 2.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 include dirname(__DIR__) . '/Config/bootstrap.php';
 
